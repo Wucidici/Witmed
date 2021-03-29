@@ -34,10 +34,10 @@
 export default {
   computed: {
     tagsList () {
-      // return this.$store.state.tagsList
+      return this.$store.state.tagsList
     },
     showTags () {
-      // return this.tagsList.length > 0
+      return this.tagsList.length > 0
     }
   },
   methods: {
