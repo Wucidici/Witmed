@@ -1,4 +1,3 @@
-
 <template>
 <div>
   <img src="../../assets/hospital.jpg" style="box-shadow:5px 5px 80px #010">
@@ -10,7 +9,6 @@
 					<el-form-item label="名称" prop="name"><el-input v-model="ruleForm.name"></el-input></el-form-item>
 
 					<el-form-item label="密码" prop="pass"><el-input type="password" v-model="ruleForm.pass" auto-complete="off"></el-input></el-form-item>
-
 					<el-form-item>
 						<el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
 
