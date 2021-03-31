@@ -1,6 +1,7 @@
-import {createStore} from 'vuex'
-
-export default createStore({
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+const store = new Vuex.Store({
   state: {
     tagsList: [],
     collapse: false
@@ -50,7 +51,6 @@ export default createStore({
     hadndleCollapse (state, data) {
       state.collapse = data
     }
-  },
-  actions: {},
-  modules: {}
+  }
 })
+export default store

@@ -4,7 +4,7 @@
       <i v-if="!collapse" class="el-icon-s-fold"></i>
       <i v-else class="el-icon-s-unfold"></i>
     </div>
-    <div class="logo">后台管理系统</div>
+    <div class="logo">医院后台管理系统</div>
     <div class="header-right">
       <div class="header-user-con">
         <!-- 消息中心 -->
@@ -50,41 +50,41 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       fullscreen: false,
-      name: 'linxin',
+      name: 'yuaxiang',
       message: 2
-    }
+    };
   },
   computed: {
-    username () {
-      let username = localStorage.getItem('ms_username')
-      return username || this.name
+    username() {
+      let username = localStorage.getItem('ms_username');
+      return username || this.name;
     },
-    collapse () {
-      return this.$store.state.collapse
+    collapse() {
+      return this.$store.state.collapse;
     }
   },
   methods: {
     // 用户名下拉菜单选择事件
-    handleCommand (command) {
+    handleCommand(command) {
       if (command === 'loginout') {
-        localStorage.removeItem('ms_username')
-        this.$router.push('/login')
+        localStorage.removeItem('ms_username');
+        this.$router.push('/login');
       }
     },
     // 侧边栏折叠
-    collapseChage () {
-      this.$store.commit('hadndleCollapse', !this.collapse)
+    collapseChage() {
+      this.$store.commit('hadndleCollapse', !this.collapse);
     }
   },
-  mounted () {
+  mounted() {
     if (document.body.clientWidth < 1500) {
-      this.collapseChage()
+      this.collapseChage();
     }
   }
-}
+};
 </script>
 <style scoped>
 .header {
