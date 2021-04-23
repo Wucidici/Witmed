@@ -2,7 +2,7 @@
   <div class="sidebar">
     <el-menu
       class="sidebar-el-menu"
-      :default-active="onRoutes"
+      :default-active="1"
       :collapse="collapse"
       background-color="#324157"
       text-color="#bfcbd9"
@@ -59,12 +59,12 @@ export default {
       items: [
         {
           icon: 'el-icon-s-home',
-          index: 'dashboard',
+          index: '/firstpage',
           title: '系统首页'
         },
         {
           icon: 'el-icon-goods',
-          index: 'table',
+          index: '/medicinelist',
           title: '药品管理'
         },
         {
@@ -75,15 +75,19 @@ export default {
         {
           icon: 'el-icon-postcard',
           index: '3',
-          title: '公告管理',
+          title: '公告与健康知识管理',
           subs: [
             {
-              index: 'form',
+              index: '/notice/publice',
               title: '公告发布'
             },
             {
-              index: 'upload',
+              index: '/notice/list',
               title: '公告列表'
+            },
+            {
+              index: '/notice/healthlist',
+              title: '健康知识列表'
             }
           ]
         }

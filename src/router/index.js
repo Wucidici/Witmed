@@ -13,7 +13,52 @@ export default new Router({
     {
       path: '/',
       name: 'HomePage',
-      component: () => import('@/components/HomePage.vue')
+      component: () => import('@/components/HomePage.vue'),
+      children: [
+        {
+          path: '/notice/publice',
+          name: 'noticepublice',
+          meta: {
+            title: '公告发布'
+          },
+          component: () => import('../components/main/Notice/NoticePublice.vue')
+        },
+        {
+          path: '/notice/list',
+          name: 'noticelist',
+          meta: {
+            title: '公告列表'
+          },
+          component: () => import('../components/main/Notice/NoticeList.vue')
+        },
+        {
+          path: '/notice/healthlist',
+          name: 'healthlist',
+          meta: {
+            title: '健康知识列表'
+          },
+          component: () =>
+            import('../components/main/Notice/HealthKonwledge.vue')
+        },
+
+        {
+          path: '/firstpage',
+          name: 'firstpage',
+          meta: {
+            title: '系统首页'
+          },
+          component: () => import('../components/main/FirstPage.vue')
+        },
+        {
+          path: '/medicinelist',
+          name: 'medicinelist',
+          meta: {
+            title: '药品管理'
+          },
+          component: () =>
+            import('../components/main/Medicine/MedicineList.vue')
+        }
+      ]
     },
     {
       path: '/login',
@@ -34,6 +79,11 @@ export default new Router({
       path: '/PublicNotice',
       name: 'PublicNotice',
       component: PublicNotice
+    },
+    {
+      path: '/noticedetail',
+      name: 'NoticeDetail',
+      component: () => import('@/components/main/Notice/NoticeDetail.vue')
     }
   ]
 });
