@@ -13,6 +13,7 @@
             </el-input>
           </el-form-item>
         </el-col>
+
         <el-col :span="12">
           <el-form-item label="药品类别" prop="medicineClass">
             <el-input v-model="form.medicineClass" placeholder="请输入科目">
