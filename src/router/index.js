@@ -5,6 +5,7 @@ import Login from '@/components/main/Login';
 import PortalIndex from '../components/portal/PortalIndex';
 import HospitalIntroduction from '../components/portal/HospitalIntroduction';
 import PublicNotice from '../components/portal/PublicNotice';
+import DiagnoseSelf from '../components/portal/diagnoseSelf/index'
 
 Vue.use(Router);
 
@@ -40,7 +41,6 @@ export default new Router({
           component: () =>
             import('../components/main/Notice/HealthKonwledge.vue')
         },
-
         {
           path: '/firstpage',
           name: 'firstpage',
@@ -84,6 +84,11 @@ export default new Router({
       path: '/noticedetail',
       name: 'NoticeDetail',
       component: () => import('@/components/main/Notice/NoticeDetail.vue')
+    },
+    {
+      path: '/diagnoseSelf',
+      name: 'diagnoseSelf',
+      component: DiagnoseSelf
     }
   ]
 });
