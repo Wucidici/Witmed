@@ -15,14 +15,14 @@
               label-width="100px"
               class="demo-ruleForm"
             >
-              <el-form-item label="名称" prop="name"
-                ><el-input v-model="ruleForm.name"></el-input
+              <el-form-item label="名称" prop="userName"
+                ><el-input v-model="ruleForm.userName"></el-input
               ></el-form-item>
 
-              <el-form-item label="密码" prop="pass"
+              <el-form-item label="密码" prop="userPassword"
                 ><el-input
                   type="password"
-                  v-model="ruleForm.pass"
+                  v-model="ruleForm.userPassword"
                   auto-complete="off"
                 ></el-input
               ></el-form-item>
@@ -53,16 +53,18 @@ export default {
     return {
       activeName: 'first',
       ruleForm: {
-        name: '',
-        pass: '',
+        userName: '',
+        userPassword: '',
         checkPass: ''
       },
       rules: {
-        name: [
+        userName: [
           { required: true, message: '请输入您的名称', trigger: 'blur' },
-          { min: 2, max: 5, message: '长度在 2 到 5 个字符', trigger: 'blur' }
+          { min: 5, max: 10, message: '长度在 5 到 10 个字符', trigger: 'blur' }
         ],
-        pass: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+        userPassword: [
+          { required: true, message: '请输入密码', trigger: 'blur' }
+        ]
       }
     };
   },
@@ -78,11 +80,35 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$message({
-            type: 'success',
-            message: '登录成功'
+          this.axios.post('login', this.ruleForm).then(resp => {
+            console.log(resp);
+            if (resp.data == null || resp.data == '') {
+              this.$notify.error({
+                title: '登陆失败',
+                message: '用户名或密码错误',
+                duration: 1300
+              });
+            } else {
+              if (resp.data.userType) {
+                if (resp.data.userType == 1) {
+                  this.$message({
+                    type: 'success',
+                    message: '登录成功'
+                  });
+                  this.$router.push('/homepage');
+                }
+                if (resp.data.userType == 2) {
+                  this.$message({
+                    type: 'success',
+                    message: '登录成功'
+                  });
+                  localStorage.setItem('userName', resp.data.userName);
+                  localStorage.setItem('userId', resp.data.id);
+                  this.$router.push('/PortalIndex');
+                }
+              }
+            }
           });
-          this.$router.push('/');
         } else {
           console.log('error submit!!');
           return false;

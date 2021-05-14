@@ -34,13 +34,13 @@ export default {
   data() {
     return {
       fullscreen: false,
-      name: 'yuaxiang',
+      name: 'admin',
       message: 2
     };
   },
   computed: {
     username() {
-      let username = localStorage.getItem('ms_username');
+      let username = localStorage.getItem('username');
       return username || this.name;
     },
     collapse() {
@@ -51,7 +51,7 @@ export default {
     // 用户名下拉菜单选择事件
     handleCommand(command) {
       if (command === 'loginout') {
-        this.$router.push('/login');
+        this.$router.push('/');
       }
     },
     // 侧边栏折叠

@@ -5,14 +5,14 @@ import Login from '@/components/main/Login';
 import PortalIndex from '../components/portal/PortalIndex';
 import HospitalIntroduction from '../components/portal/HospitalIntroduction';
 import PublicNotice from '../components/portal/PublicNotice';
-import DiagnoseSelf from '../components/portal/diagnoseSelf/index'
+import DiagnoseSelf from '../components/portal/diagnoseSelf/index';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/homepage',
       name: 'HomePage',
       component: () => import('@/components/HomePage.vue'),
       children: [
@@ -57,11 +57,35 @@ export default new Router({
           },
           component: () =>
             import('../components/main/Medicine/MedicineList.vue')
+        },
+        {
+          path: '/wardlist',
+          name: 'wardlist',
+          meta: {
+            title: '住院管理'
+          },
+          component: () => import('../components/main/Ward/WardList.vue')
+        },
+        {
+          path: '/wardrecordlist',
+          name: 'wardrecordlist',
+          meta: {
+            title: '住院记录'
+          },
+          component: () => import('../components/main/Ward/WardRecordList.vue')
+        },
+        {
+          path: '/doctorlist',
+          name: 'doctorlist',
+          meta: {
+            title: '医生管理'
+          },
+          component: () => import('../components/main/Doctor/DoctorList.vue')
         }
       ]
     },
     {
-      path: '/login',
+      path: '/',
       name: 'Login',
       component: Login
     },
@@ -89,6 +113,33 @@ export default new Router({
       path: '/diagnoseSelf',
       name: 'diagnoseSelf',
       component: DiagnoseSelf
+    },
+    {
+      path: '/navigation',
+      name: 'navigation',
+      component: () => import('@/components/portal/Navigation.vue')
+    },
+    {
+      path: '/hospitalization',
+      name: 'hospitalization',
+      component: () =>
+        import('@/components/portal/PersonalCenter/Hospitalization.vue')
+    },
+    {
+      path: '/registeredrecord',
+      name: 'registeredrecord',
+      component: () =>
+        import('@/components/portal/PersonalCenter/RegisteredRecord.vue')
+    },
+    {
+      path: '/showprice',
+      name: 'showprice',
+      component: () => import('@/components/portal/ShowPrice.vue')
+    },
+    {
+      path: '/healthknowledge',
+      name: 'healthknowledge',
+      component: () => import('@/components/portal/HealthKnowledge.vue')
     }
   ]
 });

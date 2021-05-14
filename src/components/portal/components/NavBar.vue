@@ -11,18 +11,15 @@
     <el-menu-item index="PortalIndex">首页</el-menu-item>
     <el-menu-item index="HospitalIntroduction">医院概述</el-menu-item>
     <el-menu-item index="PublicNotice">通知公告</el-menu-item>
-    <el-menu-item index="3">健康知识普及</el-menu-item>
-    <el-menu-item index="4">价格公示</el-menu-item>
-    <el-menu-item index="5">地图导航</el-menu-item>
-    <el-menu-item index="6">科室导航</el-menu-item>
+    <el-menu-item index="healthknowledge">健康知识普及</el-menu-item>
+    <el-menu-item index="showprice">价格公示</el-menu-item>
+    <el-menu-item index="navigation">地图导航</el-menu-item>
     <el-submenu index="7">
       <template slot="title">个人中心</template>
-      <el-menu-item index="7-1">预约挂号</el-menu-item>
-      <el-menu-item index="7-2">门诊记录</el-menu-item>
-      <el-menu-item index="7-3">住院办理</el-menu-item>
-      <el-menu-item index="7-3">自我诊断</el-menu-item>
-      <el-menu-item index="7-3">检验结果</el-menu-item>
-      <el-menu-item index="7-3">自主结算</el-menu-item>
+      <el-menu-item index="hospitalization">预约挂号</el-menu-item>
+      <el-menu-item index="registeredrecord">挂号记录</el-menu-item>
+      <el-menu-item index="hospitalization">住院办理</el-menu-item>
+      <el-menu-item index="diagnoseSelf">自我诊断</el-menu-item>
     </el-submenu>
   </el-menu>
 </template>
@@ -44,6 +41,8 @@ export default {
   methods: {
     handleSelect(key, keyPath) {
       // debugger;
+      localStorage.setItem('activeIndex', key);
+      console.log(localStorage.getItem('activeIndex'));
       console.log(key, keyPath);
       let params = {
         activeIndex: key

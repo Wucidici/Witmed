@@ -6,46 +6,39 @@
         v-model="input3"
         class="input-with-select"
       >
-        <el-select v-model="select" slot="prepend" placeholder="请选择">
-          <el-option label="餐厅名" value="1"></el-option>
-          <el-option label="订单号" value="2"></el-option>
-          <el-option label="用户电话" value="3"></el-option>
-        </el-select>
         <el-button slot="append" icon="el-icon-search"></el-button>
       </el-input>
     </div>
-    <el-table :data="medicine" style="width: 100%">
-      <el-table-column label="药品名称" width="180">
+
+    <el-table :data="doctor" style="width: 100%">
+      <el-table-column label="医生姓名" width="100">
         <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.medicineName }}</span>
+          <span style="margin-left: 10px">{{ scope.row.doctorName }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="药品种类" width="100">
+      <el-table-column label="科室" width="150">
         <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.medicineClass }}</span>
+          <span style="margin-left: 10px">{{ scope.row.departmentType }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="数量" width="100">
+      <el-table-column label="医生类别" width="150">
         <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.medicineNum }}</span>
+          <span style="margin-left: 10px">{{ scope.row.doctorType }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="价格" width="100">
+      <el-table-column label="医生性别" width="100">
         <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.medicineMoney }}</span>
+          <span style="margin-left: 10px">{{ scope.row.doctorGender }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="单位" width="100">
+      <el-table-column label="每日接诊数" width="150">
         <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.medicineUnit }}</span>
+          <span style="margin-left: 10px">{{ scope.row.appointNum }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="创建日期" width="380">
+      <el-table-column label="剩余挂号数" width="150">
         <template slot-scope="scope">
-          <i class="el-icon-time"></i>
-          <span style="margin-left: 10px">{{
-            scope.row.medicineproductdate | formatDate
-          }}</span>
+          <span style="margin-left: 10px">{{ scope.row.remainNum }}</span>
         </template>
       </el-table-column>
 
@@ -67,74 +60,50 @@
           ></el-button>
         </template>
       </el-table-column>
-      <!-- 药品添加和修改 组件通过 -->
-      <medicine-detail
+
+      <doctor-detail
         :id="rowid"
         :visible.sync="needShowDialog"
         v-if="needShowDialog"
-        @resetLoadData="getMedicineList"
-      ></medicine-detail>
+        @resetLoadData="getDoctorList"
+      ></doctor-detail>
     </el-table>
     <el-row>
       <br />
-      <el-button type="primary" round @click="addmedicine">新增</el-button>
+      <el-button type="primary" round @click="addDoctor">新增</el-button>
     </el-row>
   </div>
 </template>
 
 <script>
-import MedicineDetail from './MedicineDetail.vue';
+import DoctorDetail from './DoctorDetail.vue';
 export default {
-  components: { MedicineDetail },
+  components: { DoctorDetail },
   data() {
     return {
       needShowDialog: false,
       isVisible: true,
       medicine: {},
-      notice: {},
-      rowid: '',
-      tableData: [
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }
-      ]
+      doctor: {},
+      rowid: ''
     };
-  },
-  filters: {
-    formatDate: function(value) {
-      let date = new Date(value);
-      let y = date.getFullYear();
-      let MM = date.getMonth() + 1;
-      MM = MM < 10 ? '0' + MM : MM;
-      let d = date.getDate();
-      d = d < 10 ? '0' + d : d;
-      let h = date.getHours();
-      h = h < 10 ? '0' + h : h;
-      let m = date.getMinutes();
-      m = m < 10 ? '0' + m : m;
-      let s = date.getSeconds();
-      s = s < 10 ? '0' + s : s;
-      return y + '-' + MM + '-' + d + ' ' + h + ':' + m + ':' + s;
-    }
   },
 
   mounted() {
-    this.getMedicineList();
+    this.getDoctorList();
   },
   methods: {
-    getMedicineList() {
-      this.axios.get('findallmedicine').then(resp => {
+    getDoctorList() {
+      this.axios.get('findalldoctor').then(resp => {
         console.log(resp);
-        this.medicine = resp.data;
+        this.doctor = resp.data;
       });
     },
     handleEdit(id) {
       this.rowid = id;
       this.needShowDialog = true;
     },
-    addmedicine() {
+    addDoctor() {
       this.rowid = '';
       this.needShowDialog = true;
     },
@@ -144,13 +113,13 @@ export default {
         cancelButtonText: '取消'
       })
         .then(() => {
-          this.axios.delete('deletemedicine/' + id).then(resp => {
+          this.axios.delete('deleteDoctor/' + id).then(resp => {
             if (resp.data == 1) {
               this.$message({
                 type: 'success',
                 message: '删除成功'
               });
-              this.getMedicineList();
+              this.getDoctorList();
             } else {
               this.$message({
                 type: 'error',

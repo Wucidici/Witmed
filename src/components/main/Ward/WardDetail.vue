@@ -1,5 +1,5 @@
 <template>
-  <el-dialog title="药品详情" :visible="visible" :append-to-body="true">
+  <el-dialog title="病房详情" :visible="visible" :append-to-body="true">
     <el-form
       :model="form"
       :rules="rules"
@@ -8,62 +8,44 @@
     >
       <el-row :gutter="20" class="rt-portal-form-row">
         <el-col :span="12">
-          <el-form-item label="药品名称" prop="medicineName">
-            <el-input v-model="form.medicineName" placeholder="请输入药品名称">
+          <el-form-item label="住院地址" prop="wardAddress">
+            <el-input v-model="form.wardAddress" placeholder="请输入住院地址">
             </el-input>
           </el-form-item>
         </el-col>
 
         <el-col :span="12">
-          <el-form-item label="药品类别" prop="medicineClass">
-            <el-input v-model="form.medicineClass" placeholder="请输入科目">
-            </el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row :gutter="20">
-        <el-col :span="12">
-          <el-form-item label="库存数量" prop="medicineNum">
-            <el-input v-model="form.medicineNum" placeholder="请输入库存数量">
-            </el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="12">
-          <el-form-item label="价格" prop="medicineMoney">
-            <el-input v-model="form.medicineMoney" placeholder="请输入价格">
-            </el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row :gutter="20">
-        <el-col :span="12">
-          <el-form-item label="单位" prop="medicineUnit">
-            <el-select v-model="form.medicineUnit" placeholder="单位">
-              <el-option label="盒" value="盒"></el-option>
-              <el-option label="片" value="片"></el-option>
-              <el-option label="瓶" value="瓶"></el-option>
-              <el-option label="袋" value="袋"></el-option>
+          <el-form-item label="病房类型" prop="wardType">
+            <el-select v-model="form.wardType" placeholder="病房类型">
+              <el-option label="普通病房" value="普通病房"></el-option>
+              <el-option label="重症病房" value="重症病房"></el-option>
+              <el-option label="隔离病房" value="隔离病房"></el-option>
             </el-select>
           </el-form-item>
         </el-col>
+      </el-row>
+      <el-row :gutter="20">
         <el-col :span="12">
-          <el-form-item label="有效日期" prop="medicineexpirationdate">
-            <el-date-picker
-              v-model="form.medicineexpirationdate"
-              type="date"
-              placeholder="选择日期"
-            >
-            </el-date-picker>
+          <el-form-item label="床位数量" prop="wardBednum">
+            <el-input v-model="form.wardBednum" placeholder="请输入床位数量">
+            </el-input>
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="生产日期" prop="medicineproductdate">
-            <el-date-picker
-              v-model="form.medicineproductdate"
-              type="date"
-              placeholder="选择日期"
-            >
-            </el-date-picker>
+          <el-form-item label="房间号" prop="wardRoomnum">
+            <el-input v-model="form.wardRoomnum" placeholder="请输入房间号">
+            </el-input>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="剩余房间数量" prop="wardRemiannum">
+            <el-input
+              :disabled="true"
+              v-model="form.wardRemiannum"
+              placeholder="默认和床位数量相同"
+            ></el-input>
           </el-form-item>
         </el-col>
       </el-row>
@@ -76,8 +58,6 @@
 </template>
 
 <script>
-import LoginVue from '../Login.vue';
-
 export default {
   props: {
     disabled: false,
@@ -90,51 +70,35 @@ export default {
     }
   },
   data() {
-    // var checkOrderAmount = (rule, value, callback) => {
-    //   if (
-    //     value == null ||
-    //     value == undefined ||
-    //     value == '' ||
-    //     value.length <= 0
-    //   )
-    //     return;
-    //   var reg = new RegExp('^[1-9](\\d{0,9})((\\.\\d{1,2})?)$');
-    // };
     return {
       formLoading: true, //表单的loading参数
       form: {
         id: 0,
-        medicineName: '',
-        medicineClass: '', //药品种类
-        medicineNum: 0, //数量
-        medicineMoney: 0, //价格
-        medicineUnit: '盒', //单位
-        medicineproductdate: '', // 生产日期
-        medicineexpirationdate: '' //有效日期
+        wardAddress: '', //地址
+        wardType: '普通病房', //类别
+        wardBednum: 0, //床位数量
+        wardRoomnum: 0, //房间号
+        wardRemiannum: 0 //bing
       },
       formLabelWidth: '120px',
       rules: {
-        medicineName: [
-          { required: true, message: '药品名称不能为空', trigger: 'blur' }
+        wardAddress: [
+          { required: true, message: '地址不能为空', trigger: 'blur' }
         ],
-        medicineClass: [
+        wardType: [
           { required: true, message: '类别不能为空', trigger: 'blur' }
         ],
-        medicineNum: [
-          { required: true, message: '数量不为空', trigger: 'change' },
+        wardBednum: [
+          { required: true, message: '床位数量不为空', trigger: 'change' },
           { pattern: /^([0-9])+?$/, message: '数量必须是整数' }
         ],
-        medicineMoney: [
-          { required: true, message: '价格不为空', trigger: 'change' },
-          { pattern: /^([0-9])+(\.[0-9]+)?$/, message: '价格必须是数字的值' }
-        ],
-
-        medicineexpirationdate: [
-          { required: true, message: '有效期不能为空', trigger: 'blur' }
+        wardRoomnum: [
+          { required: true, message: '房间号不能为空', trigger: 'change' }
         ]
       }
     };
   },
+
   mounted() {
     this.fetchData();
   },
@@ -142,8 +106,9 @@ export default {
     fetchData() {
       if (this.id) {
         this.axios
-          .get('findmedicinebyid/' + this.id)
+          .get('getwardbyid/' + this.id)
           .then(resp => {
+            console.log(resp.data);
             this.form = resp.data;
           })
           .catch(error => {
@@ -160,10 +125,10 @@ export default {
           var that = this;
           // 通过传来的id是否为空判断是创建还是修改
           if (this.id == '') {
-            // 调用后端接口创建药品信息
-            this.axios.post('createmedicine', this.form).then(resp => {
+            // 调用后端接口创建病房信息
+            this.axios.post('createward', this.form).then(resp => {
               console.log(resp);
-              if (resp.status == 200) {
+              if (resp.data == 1) {
                 this.$message({
                   type: 'success',
                   message: ' 提交成功'
@@ -181,8 +146,8 @@ export default {
             });
           } else {
             this.form.id = this.id;
-            this.axios.post('updatemedicine', this.form).then(resp => {
-              if (resp.status == 200) {
+            this.axios.post('updateward', this.form).then(resp => {
+              if (resp.data == 1) {
                 this.$message({
                   type: 'success',
                   message: ' 修改成功'

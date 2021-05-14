@@ -5,7 +5,7 @@
         <div>
           <el-tag type="success">文章标题 </el-tag>
           <el-input
-            style="width: 700px; position:relative;"
+            style="width: 500px; position:relative;"
             type="text"
             placeholder="请输入标题"
             v-model="notice.noticeTitle"
@@ -19,12 +19,13 @@
       <el-col :span="6">
         <el-tag type="success">文章类型</el-tag>
         <el-select
-          :disabled="notice.noticeType != ''"
+          :disabled="noticeid != ''"
           v-model="notice.noticeType"
           placeholder="请选择文章类型"
         >
           <el-option label="公告" value="1"></el-option>
           <el-option label="健康知识" value="2"></el-option>
+          <el-option label="系统" value="3"></el-option>
         </el-select>
       </el-col>
     </el-row>
@@ -53,6 +54,7 @@ export default {
         noticeHtml: '',
         noticeTitle: '',
         noticeType: '',
+        imgUrl: '',
         id: 0
       },
       noticeid: '',
@@ -64,6 +66,10 @@ export default {
         {
           value: '2',
           label: '健康知识'
+        },
+        {
+          value: '3',
+          label: '系统'
         }
       ]
     };
@@ -80,14 +86,12 @@ export default {
     }
   },
   methods: {
+    // 添加图片触发方法
     imgAdd(pos, $file) {
       var that = this;
-      // alert('idjfdhf');
-      // debugger;
       // 第一步.将图片上传到服务器.
       var formData = new FormData();
       formData.append('image', $file);
-      console.log(formData.get('image'));
       this.axios({
         url: 'uploadpicture',
         method: 'post',
@@ -96,6 +100,8 @@ export default {
       }).then(resp => {
         var url = resp.data;
         console.log(url);
+        this.notice.imgUrl = url;
+        //加载图片显示
         this.$refs.md.$img2Url(pos, resp.data);
       });
     },

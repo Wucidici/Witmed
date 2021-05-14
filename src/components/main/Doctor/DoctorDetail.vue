@@ -8,62 +8,49 @@
     >
       <el-row :gutter="20" class="rt-portal-form-row">
         <el-col :span="12">
-          <el-form-item label="药品名称" prop="medicineName">
-            <el-input v-model="form.medicineName" placeholder="请输入药品名称">
+          <el-form-item label="医生名称" prop="doctorName">
+            <el-input v-model="form.doctorName" placeholder="请输入医生名称">
             </el-input>
           </el-form-item>
         </el-col>
+        <el-col :span="12">
+          <el-form-item label="接诊数" prop="appointNum">
+            <el-input v-model="form.appointNum" placeholder="请输入接诊数目">
+            </el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="剩余数量" prop="remainNum">
+            <el-input disabled v-model="form.remainNum"> </el-input>
+          </el-form-item>
+        </el-col>
+      </el-row>
 
-        <el-col :span="12">
-          <el-form-item label="药品类别" prop="medicineClass">
-            <el-input v-model="form.medicineClass" placeholder="请输入科目">
-            </el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
       <el-row :gutter="20">
         <el-col :span="12">
-          <el-form-item label="库存数量" prop="medicineNum">
-            <el-input v-model="form.medicineNum" placeholder="请输入库存数量">
-            </el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="12">
-          <el-form-item label="价格" prop="medicineMoney">
-            <el-input v-model="form.medicineMoney" placeholder="请输入价格">
-            </el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row :gutter="20">
-        <el-col :span="12">
-          <el-form-item label="单位" prop="medicineUnit">
-            <el-select v-model="form.medicineUnit" placeholder="单位">
-              <el-option label="盒" value="盒"></el-option>
-              <el-option label="片" value="片"></el-option>
-              <el-option label="瓶" value="瓶"></el-option>
-              <el-option label="袋" value="袋"></el-option>
+          <el-form-item label="性别" prop="doctorGender">
+            <el-select v-model="form.doctorGender" placeholder="性别">
+              <el-option label="男" value="男"></el-option>
+              <el-option label="女" value="女"></el-option>
             </el-select>
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="有效日期" prop="medicineexpirationdate">
-            <el-date-picker
-              v-model="form.medicineexpirationdate"
-              type="date"
-              placeholder="选择日期"
-            >
-            </el-date-picker>
+          <el-form-item label="科室" prop="departmentType">
+            <el-select v-model="form.departmentType" placeholder="科室">
+              <el-option label="内科" value="内科"></el-option>
+              <el-option label="外科" value="外科"></el-option>
+              <el-option label="骨科" value="骨科"></el-option>
+              <el-option label="神经科" value="神经科"></el-option>
+            </el-select>
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="生产日期" prop="medicineproductdate">
-            <el-date-picker
-              v-model="form.medicineproductdate"
-              type="date"
-              placeholder="选择日期"
-            >
-            </el-date-picker>
+          <el-form-item label="类别" prop="doctorType">
+            <el-select v-model="form.doctorType" placeholder="类别">
+              <el-option label="专家号" value="专家号"></el-option>
+              <el-option label="普通号" value="普通号"></el-option>
+            </el-select>
           </el-form-item>
         </el-col>
       </el-row>
@@ -90,47 +77,31 @@ export default {
     }
   },
   data() {
-    // var checkOrderAmount = (rule, value, callback) => {
-    //   if (
-    //     value == null ||
-    //     value == undefined ||
-    //     value == '' ||
-    //     value.length <= 0
-    //   )
-    //     return;
-    //   var reg = new RegExp('^[1-9](\\d{0,9})((\\.\\d{1,2})?)$');
-    // };
     return {
       formLoading: true, //表单的loading参数
       form: {
         id: 0,
-        medicineName: '',
-        medicineClass: '', //药品种类
-        medicineNum: 0, //数量
-        medicineMoney: 0, //价格
-        medicineUnit: '盒', //单位
-        medicineproductdate: '', // 生产日期
-        medicineexpirationdate: '' //有效日期
+        doctorName: '',
+        doctorType: '',
+        doctorGender: '',
+        appointNum: 0,
+        remainNum: 0,
+        departmentType: ''
       },
       formLabelWidth: '120px',
       rules: {
-        medicineName: [
-          { required: true, message: '药品名称不能为空', trigger: 'blur' }
+        doctorName: [
+          { required: true, message: '医生姓名不能为空', trigger: 'blur' }
         ],
-        medicineClass: [
-          { required: true, message: '类别不能为空', trigger: 'blur' }
+        doctorType: [
+          { required: true, message: '医生类别不能为空', trigger: 'blur' }
         ],
-        medicineNum: [
-          { required: true, message: '数量不为空', trigger: 'change' },
-          { pattern: /^([0-9])+?$/, message: '数量必须是整数' }
+        appointNum: [
+          { required: true, message: '每日接诊数不能为空', trigger: 'change' },
+          { pattern: /^([0-9])+?$/, message: '接诊数必须是整数' }
         ],
-        medicineMoney: [
-          { required: true, message: '价格不为空', trigger: 'change' },
-          { pattern: /^([0-9])+(\.[0-9]+)?$/, message: '价格必须是数字的值' }
-        ],
-
-        medicineexpirationdate: [
-          { required: true, message: '有效期不能为空', trigger: 'blur' }
+        departmentType: [
+          { required: true, message: '科室不能为空', trigger: 'blur' }
         ]
       }
     };
@@ -138,11 +109,16 @@ export default {
   mounted() {
     this.fetchData();
   },
+  watch: {
+    'form.appointNum': function(nval, oval) {
+      this.form.remainNum = nval;
+    }
+  },
   methods: {
     fetchData() {
       if (this.id) {
         this.axios
-          .get('findmedicinebyid/' + this.id)
+          .get('getDoctorById/' + this.id)
           .then(resp => {
             this.form = resp.data;
           })
@@ -160,8 +136,7 @@ export default {
           var that = this;
           // 通过传来的id是否为空判断是创建还是修改
           if (this.id == '') {
-            // 调用后端接口创建药品信息
-            this.axios.post('createmedicine', this.form).then(resp => {
+            this.axios.post('createdoctor', this.form).then(resp => {
               console.log(resp);
               if (resp.status == 200) {
                 this.$message({
@@ -181,7 +156,7 @@ export default {
             });
           } else {
             this.form.id = this.id;
-            this.axios.post('updatemedicine', this.form).then(resp => {
+            this.axios.post('updateDoctor', this.form).then(resp => {
               if (resp.status == 200) {
                 this.$message({
                   type: 'success',

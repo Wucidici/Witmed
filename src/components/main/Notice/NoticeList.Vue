@@ -1,58 +1,69 @@
 <template>
-  <el-table :data="notice" style="width: 100%">
-    <el-table-column label="日期" width="380">
-      <template slot-scope="scope">
-        <i class="el-icon-time"></i>
-        <span style="margin-left: 10px">{{
-          scope.row.noticeCreatetime | formatDate
-        }}</span>
-      </template>
-    </el-table-column>
-    <el-table-column label="标题" width="500">
-      <template slot-scope="scope">
-        <span style="margin-left: 10px">{{ scope.row.noticeTitle }}</span>
-      </template>
-    </el-table-column>
-    <el-table-column label="操作">
-      <template slot-scope="scope">
-        <el-button
-          type="primary"
-          icon="el-icon-edit"
-          @click="handleEdit(scope.row.id)"
-          circle
-        ></el-button>
-        <el-tooltip class="item" effect="dark" content="发布" placement="top">
+  <div>
+    <el-form>
+      <el-row>
+        <el-col :span="8">
+          <el-form-item label="文章标题" prop="input">
+            <el-input
+              v-model="input"
+              placeholder="请输入标题"
+              style="width:300px;"
+            ></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :span="6">
+          <el-button type="primary">搜索</el-button>
+        </el-col>
+      </el-row>
+    </el-form>
+    <el-table :data="notice" style="width: 100%">
+      <el-table-column label="日期" sortable width="380">
+        <template slot-scope="scope">
+          <i class="el-icon-time"></i>
+          <span style="margin-left: 10px">{{
+            scope.row.noticeCreatetime | formatDate
+          }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="标题" width="500">
+        <template slot-scope="scope">
+          <span style="margin-left: 10px">{{ scope.row.noticeTitle }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
           <el-button
-            v-if="scope.row.noticeStatus == 0"
-            type="success"
-            icon="el-icon-check"
-            @click="handlePublice(scope.row.id)"
+            type="primary"
+            icon="el-icon-edit"
+            @click="handleEdit(scope.row.id)"
             circle
           ></el-button>
-        </el-tooltip>
-        <el-button
-          type="danger"
-          icon="el-icon-delete"
-          @click="handleDelete(scope.row.id)"
-          circle
-        ></el-button>
-      </template>
-    </el-table-column>
-  </el-table>
+          <el-tooltip class="item" effect="dark" content="发布" placement="top">
+            <el-button
+              v-if="scope.row.noticeStatus == 0"
+              type="success"
+              icon="el-icon-check"
+              @click="handlePublice(scope.row.id)"
+              circle
+            ></el-button>
+          </el-tooltip>
+          <el-button
+            type="danger"
+            icon="el-icon-delete"
+            @click="handleDelete(scope.row.id)"
+            circle
+          ></el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      notice: {},
-      tableData: [
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }
-      ]
+      notice: {}
     };
   },
   filters: {

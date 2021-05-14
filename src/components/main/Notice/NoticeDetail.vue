@@ -8,6 +8,7 @@
       :editable="false"
       :scrollStyle="true"
       :ishljs="true"
+      :navigation="true"
       v-model="notice.noticeContent"
     ></mavon-editor>
     <article v-html="notice.noticeContentHtml"></article>

@@ -69,8 +69,28 @@ export default {
         },
         {
           icon: 'el-icon-school',
+          index: '1',
+          title: '住院管理',
+          subs: [
+            {
+              index: '/wardlist',
+              title: '病房管理'
+            },
+            {
+              index: '/wardrecordlist',
+              title: '住院记录'
+            }
+          ]
+        },
+        {
+          icon: 'el-icon-user',
           index: 'tabs',
-          title: '住院管理'
+          title: '用户管理'
+        },
+        {
+          icon: 'el-icon-first-aid-kit',
+          index: 'doctorlist',
+          title: '医生管理'
         },
         {
           icon: 'el-icon-postcard',
@@ -91,22 +111,6 @@ export default {
             }
           ]
         }
-
-        // {
-        //     icon: "el-icon-rank",
-        //     index: "6",
-        //     title: "拖拽组件",
-        //     subs: [
-        //         {
-        //             index: "drag",
-        //             title: "拖拽列表"
-        //         },
-        //         {
-        //             index: "dialog",
-        //             title: "拖拽弹框"
-        //         }
-        //     ]
-        // },
       ]
     };
   },
