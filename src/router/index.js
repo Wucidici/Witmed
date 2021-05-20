@@ -50,6 +50,14 @@ export default new Router({
           component: () => import('../components/main/FirstPage.vue')
         },
         {
+          path: '/userlist',
+          name: 'userlist',
+          meta: {
+            title: '用户管理'
+          },
+          component: () => import('../components/main/UserList.vue')
+        },
+        {
           path: '/medicinelist',
           name: 'medicinelist',
           meta: {
@@ -105,9 +113,19 @@ export default new Router({
       component: PublicNotice
     },
     {
-      path: '/noticedetail',
-      name: 'NoticeDetail',
-      component: () => import('@/components/main/Notice/NoticeDetail.vue')
+      path: '/PortalIndex',
+      name: 'PortalIndex',
+      component: PortalIndex
+    },
+    {
+      path: '/publicnoticedetail',
+      name: 'publicnoticedetail',
+      component: () => import('@/components/portal/PublicNoticeDetail.vue')
+    },
+    {
+      path: '/healthKnowledgedetail',
+      name: 'healthKnowledgedetail',
+      component: () => import('@/components/portal/HealthKnowledgeDetail.vue')
     },
     {
       path: '/diagnoseSelf',

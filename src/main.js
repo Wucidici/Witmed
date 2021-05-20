@@ -12,6 +12,9 @@ import VueAxios from 'vue-axios';
 import mavonEditor from 'mavon-editor';
 import 'mavon-editor/dist/css/index.css';
 import BaiduMap from 'vue-baidu-map';
+import echarts from 'echarts';
+//需要挂载到Vue原型上
+Vue.prototype.$echarts = echarts;
 
 Vue.use(BaiduMap, {
   // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */

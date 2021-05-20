@@ -1,0 +1,117 @@
+Date : 2021-05-19 12:29:37
+Directory : c:\Mycode\witmed
+Total : 64 files,  23026 codes, 164 comments, 361 blanks, all 23551 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          3 |     17,469 |          0 |          2 |     17,471 |
+| Vue        |         34 |      4,421 |         45 |        198 |      4,664 |
+| JavaScript |         23 |        939 |        114 |        114 |      1,167 |
+| CSS        |          2 |        166 |          4 |         35 |        205 |
+| Markdown   |          1 |         20 |          0 |         11 |         31 |
+| HTML       |          1 |         11 |          1 |          1 |         13 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                         | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                            |         64 |     23,026 |        164 |        361 |     23,551 |
+| build                                                                                        |          7 |        469 |         41 |         55 |        565 |
+| config                                                                                       |          4 |         56 |         32 |         20 |        108 |
+| src                                                                                          |         39 |      4,831 |         55 |        244 |      5,130 |
+| src\assets                                                                                   |          2 |        166 |          4 |         35 |        205 |
+| src\assets\css                                                                               |          2 |        166 |          4 |         35 |        205 |
+| src\components                                                                               |         33 |      4,393 |         45 |        195 |      4,633 |
+| src\components\main                                                                          |         16 |      2,209 |         28 |         86 |      2,323 |
+| src\components\main\Doctor                                                                   |          2 |        321 |          3 |         11 |        335 |
+| src\components\main\Medicine                                                                 |          1 |        168 |          0 |          4 |        172 |
+| src\components\main\Notice                                                                   |          3 |        385 |          8 |         10 |        403 |
+| src\components\main\Ward                                                                     |          4 |        621 |          4 |         22 |        647 |
+| src\components\portal                                                                        |         16 |      2,145 |         17 |        108 |      2,270 |
+| src\components\portal\PersonalCenter                                                         |          4 |        624 |          4 |         18 |        646 |
+| src\components\portal\PersonalCenter\components                                              |          2 |        476 |          4 |         12 |        492 |
+| src\components\portal\components                                                             |          2 |        179 |          3 |          7 |        189 |
+| src\components\portal\diagnoseSelf                                                           |          2 |        379 |          4 |         38 |        421 |
+| src\router                                                                                   |          1 |        160 |          0 |          4 |        164 |
+| src\store                                                                                    |          1 |         55 |          1 |          1 |         57 |
+| test                                                                                         |          7 |        142 |         25 |         24 |        191 |
+| test\e2e                                                                                     |          4 |        103 |         22 |         19 |        144 |
+| test\e2e\custom-assertions                                                                   |          1 |         18 |          8 |          2 |         28 |
+| test\e2e\specs                                                                               |          1 |         12 |          5 |          3 |         20 |
+| test\unit                                                                                    |          3 |         39 |          3 |          5 |         47 |
+| test\unit\specs                                                                              |          1 |         10 |          0 |          2 |         12 |
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                     | language   | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Mycode\witmed\.eslintrc.js                                                                | JavaScript |         21 |          8 |          2 |         31 |
+| c:\Mycode\witmed\.postcssrc.js                                                               | JavaScript |          7 |          2 |          2 |         11 |
+| c:\Mycode\witmed\.prettierrc                                                                 | JSON       |          4 |          0 |          0 |          4 |
+| c:\Mycode\witmed\README.md                                                                   | Markdown   |         20 |          0 |         11 |         31 |
+| c:\Mycode\witmed\build\build.js                                                              | JavaScript |         35 |          0 |          7 |         42 |
+| c:\Mycode\witmed\build\check-versions.js                                                     | JavaScript |         45 |          0 |         10 |         55 |
+| c:\Mycode\witmed\build\utils.js                                                              | JavaScript |         80 |          5 |         17 |        102 |
+| c:\Mycode\witmed\build\vue-loader.conf.js                                                    | JavaScript |         21 |          0 |          2 |         23 |
+| c:\Mycode\witmed\build\webpack.base.conf.js                                                  | JavaScript |         88 |          5 |          4 |         97 |
+| c:\Mycode\witmed\build\webpack.dev.conf.js                                                   | JavaScript |         82 |          7 |          7 |         96 |
+| c:\Mycode\witmed\build\webpack.prod.conf.js                                                  | JavaScript |        118 |         24 |          8 |        150 |
+| c:\Mycode\witmed\config\dev.env.js                                                           | JavaScript |          6 |          0 |          2 |          8 |
+| c:\Mycode\witmed\config\index.js                                                             | JavaScript |         40 |         32 |         15 |         87 |
+| c:\Mycode\witmed\config\prod.env.js                                                          | JavaScript |          4 |          0 |          1 |          5 |
+| c:\Mycode\witmed\config\test.env.js                                                          | JavaScript |          6 |          0 |          2 |          8 |
+| c:\Mycode\witmed\index.html                                                                  | HTML       |         11 |          1 |          1 |         13 |
+| c:\Mycode\witmed\package-lock.json                                                           | JSON       |     17,370 |          0 |          1 |     17,371 |
+| c:\Mycode\witmed\package.json                                                                | JSON       |         95 |          0 |          1 |         96 |
+| c:\Mycode\witmed\src\App.vue                                                                 | Vue        |         28 |          0 |          3 |         31 |
+| c:\Mycode\witmed\src\assets\css\color-dark.css                                               | CSS        |         28 |          0 |          0 |         28 |
+| c:\Mycode\witmed\src\assets\css\main.css                                                     | CSS        |        138 |          4 |         35 |        177 |
+| c:\Mycode\witmed\src\components\HomePage.vue                                                 | Vue        |         39 |          0 |          1 |         40 |
+| c:\Mycode\witmed\src\components\main\Doctor\DoctorDetail.vue                                 | Vue        |        186 |          3 |          5 |        194 |
+| c:\Mycode\witmed\src\components\main\Doctor\DoctorList.vue                                   | Vue        |        135 |          0 |          6 |        141 |
+| c:\Mycode\witmed\src\components\main\FirstPage.vue                                           | Vue        |         66 |          0 |          4 |         70 |
+| c:\Mycode\witmed\src\components\main\Login.vue                                               | Vue        |        132 |          3 |          9 |        144 |
+| c:\Mycode\witmed\src\components\main\Medicine\MedicineList.vue                               | Vue        |        168 |          0 |          4 |        172 |
+| c:\Mycode\witmed\src\components\main\Notice\HealthKonwledge.vue                              | Vue        |        148 |          4 |          4 |        156 |
+| c:\Mycode\witmed\src\components\main\Notice\NoticeDetail.vue                                 | Vue        |         58 |          0 |          3 |         61 |
+| c:\Mycode\witmed\src\components\main\Notice\NoticePublice.vue                                | Vue        |        179 |          4 |          3 |        186 |
+| c:\Mycode\witmed\src\components\main\SideBar.vue                                             | Vue        |        143 |          1 |          3 |        147 |
+| c:\Mycode\witmed\src\components\main\Tags.vue                                                | Vue        |        162 |          9 |         12 |        183 |
+| c:\Mycode\witmed\src\components\main\UserList.vue                                            | Vue        |        105 |          0 |          5 |        110 |
+| c:\Mycode\witmed\src\components\main\Ward\WardDetail.vue                                     | Vue        |        175 |          4 |          5 |        184 |
+| c:\Mycode\witmed\src\components\main\Ward\WardList.vue                                       | Vue        |        130 |          0 |          3 |        133 |
+| c:\Mycode\witmed\src\components\main\Ward\WardRecordDetail.vue                               | Vue        |        155 |          0 |          5 |        160 |
+| c:\Mycode\witmed\src\components\main\Ward\WardRecordList.vue                                 | Vue        |        161 |          0 |          9 |        170 |
+| c:\Mycode\witmed\src\components\main\register.vue                                            | Vue        |        106 |          0 |          6 |        112 |
+| c:\Mycode\witmed\src\components\portal\HealthKnowledge.vue                                   | Vue        |         41 |          0 |          3 |         44 |
+| c:\Mycode\witmed\src\components\portal\HealthKnowledgeDetail.vue                             | Vue        |        124 |          0 |          6 |        130 |
+| c:\Mycode\witmed\src\components\portal\HospitalIntroduction.vue                              | Vue        |         76 |          0 |          4 |         80 |
+| c:\Mycode\witmed\src\components\portal\Navigation.vue                                        | Vue        |        236 |          5 |          3 |        244 |
+| c:\Mycode\witmed\src\components\portal\PersonalCenter\Hospitalization.vue                    | Vue        |         91 |          0 |          4 |         95 |
+| c:\Mycode\witmed\src\components\portal\PersonalCenter\RegisteredRecord.vue                   | Vue        |         57 |          0 |          2 |         59 |
+| c:\Mycode\witmed\src\components\portal\PersonalCenter\components\AppointmentRegistration.vue | Vue        |        255 |          2 |          7 |        264 |
+| c:\Mycode\witmed\src\components\portal\PersonalCenter\components\HospitalDetail.vue          | Vue        |        221 |          2 |          5 |        228 |
+| c:\Mycode\witmed\src\components\portal\PortalIndex.vue                                       | Vue        |        206 |          0 |         14 |        220 |
+| c:\Mycode\witmed\src\components\portal\PublicNotice.vue                                      | Vue        |         41 |          0 |          3 |         44 |
+| c:\Mycode\witmed\src\components\portal\PublicNoticeDetail.vue                                | Vue        |        124 |          0 |          6 |        130 |
+| c:\Mycode\witmed\src\components\portal\ShowPrice.vue                                         | Vue        |        115 |          1 |          6 |        122 |
+| c:\Mycode\witmed\src\components\portal\components\NavBar.vue                                 | Vue        |         53 |          1 |          3 |         57 |
+| c:\Mycode\witmed\src\components\portal\components\NoticeTitleList.vue                        | Vue        |        126 |          2 |          4 |        132 |
+| c:\Mycode\witmed\src\components\portal\diagnoseSelf\SymptomSelect.vue                        | Vue        |        253 |          4 |         26 |        283 |
+| c:\Mycode\witmed\src\components\portal\diagnoseSelf\index.vue                                | Vue        |        126 |          0 |         12 |        138 |
+| c:\Mycode\witmed\src\main.js                                                                 | JavaScript |         29 |          5 |          6 |         40 |
+| c:\Mycode\witmed\src\router\index.js                                                         | JavaScript |        160 |          0 |          4 |        164 |
+| c:\Mycode\witmed\src\store\index.js                                                          | JavaScript |         55 |          1 |          1 |         57 |
+| c:\Mycode\witmed\test\e2e\custom-assertions\elementCount.js                                  | JavaScript |         18 |          8 |          2 |         28 |
+| c:\Mycode\witmed\test\e2e\nightwatch.conf.js                                                 | JavaScript |         40 |          1 |          6 |         47 |
+| c:\Mycode\witmed\test\e2e\runner.js                                                          | JavaScript |         33 |          8 |          8 |         49 |
+| c:\Mycode\witmed\test\e2e\specs\test.js                                                      | JavaScript |         12 |          5 |          3 |         20 |
+| c:\Mycode\witmed\test\unit\jest.conf.js                                                      | JavaScript |         27 |          3 |          1 |         31 |
+| c:\Mycode\witmed\test\unit\setup.js                                                          | JavaScript |          2 |          0 |          2 |          4 |
+| c:\Mycode\witmed\test\unit\specs\HelloWorld.spec.js                                          | JavaScript |         10 |          0 |          2 |         12 |
+| Total                                                                                        |            |     23,026 |        164 |        361 |     23,551 |
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

@@ -15,7 +15,11 @@
             <el-table-column prop="name" label="标题">
               <template slot-scope="scop">
                 <router-link
-                  :to="{ name: 'noticepublice', params: { id: scop.row.id } }"
+                  @click.native="addnoticetolocal(scop.row.id)"
+                  :to="{
+                    name: 'publicnoticedetail',
+                    params: { id: scop.row.id }
+                  }"
                 >
                   <el-link :underline="false" type="primary">{{
                     scop.row.noticeTitle
@@ -38,7 +42,7 @@
         <div class="grid-content bg-purple-light">
           <div class="block">
             <el-carousel height="650px" ref="carousel" @click.native="linkto">
-              <el-carousel-item v-for="no in notice" :key="no.imgUrl">
+              <el-carousel-item v-for="no in noticeimg" :key="no.imgUrl">
                 <div style="height:100%;">
                   <el-image
                     style="width: 100%; height: 100%;"
@@ -65,7 +69,11 @@
             <el-table-column prop="name" label="标题">
               <template slot-scope="scop">
                 <router-link
-                  :to="{ name: 'noticepublice', params: { id: scop.row.id } }"
+                  @click.native="addnoticetolocal(scop.row.id)"
+                  :to="{
+                    name: 'healthKnowledgedetail',
+                    params: { id: scop.row.id }
+                  }"
                 >
                   <el-link :underline="false" type="primary">{{
                     scop.row.noticeTitle
@@ -97,8 +105,9 @@ export default {
   },
   data() {
     return {
-      activeIndex: '1',
+      activeIndex: 'PortalIndex',
       activeIndex2: '1',
+      noticeimg: {},
       notice: {},
       healthknowledge: {}
     };
@@ -119,10 +128,16 @@ export default {
     this.getKnowledgeList();
   },
   methods: {
+    addnoticetolocal(id) {
+      localStorage.setItem('noticeid', id);
+    },
+
     getNoticeList() {
       this.axios.get('findnotice').then(resp => {
-        console.log(resp);
         this.notice = resp.data;
+      });
+      this.axios.get('getImgUrl').then(resp => {
+        this.noticeimg = resp.data;
       });
     },
     getKnowledgeList() {
@@ -134,9 +149,10 @@ export default {
     linkto() {
       let activeIndex = this.$refs.carousel.activeIndex;
       this.$router.push({
-        name: 'noticepublice',
-        params: { id: this.notice[activeIndex].id }
+        name: 'publicnoticedetail',
+        params: { id: this.noticeimg[activeIndex].id }
       });
+      localStorage.setItem('noticeid', this.noticeimg[activeIndex].id);
     },
     handleSelect(key, keyPath) {
       console.log(key, keyPath);

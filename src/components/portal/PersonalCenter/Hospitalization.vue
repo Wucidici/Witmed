@@ -56,6 +56,7 @@ import AppointmentRegistration from './components/AppointmentRegistration.vue';
 export default {
   data() {
     return {
+      activeIndex: 'hospitalization',
       needShowDialog: false,
       needShowDialogs: false,
       isVisible: true,

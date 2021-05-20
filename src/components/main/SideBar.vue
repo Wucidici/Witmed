@@ -84,7 +84,7 @@ export default {
         },
         {
           icon: 'el-icon-user',
-          index: 'tabs',
+          index: 'userlist',
           title: '用户管理'
         },
         {

@@ -54,7 +54,7 @@ import NavBar from './components/NavBar';
 export default {
   data() {
     return {
-      activeIndex: 'PublicNotice',
+      activeIndex: 'healthknowledge',
       id: '',
       notice: {
         noticeContent: '',

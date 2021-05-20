@@ -1,31 +1,43 @@
 <template>
-	<div>
-		<NavBar :active-index="activeIndex"></NavBar>
-		通知公告
-	</div>
+  <div style="height:100%">
+    <NavBar :active-index="activeIndex"></NavBar>
+    <div style=" height:100%;overflow:auto !important;">
+      <notice-title-list
+        v-for="no in notice"
+        :key="no.id"
+        :NoticeData="no"
+      ></notice-title-list>
+    </div>
+  </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar'
-
+import NavBar from './components/NavBar';
+import NoticeTitleList from './components/NoticeTitleList.vue';
 export default {
   name: 'PublicNotice',
-  data () {
+  data() {
     return {
-      activeIndex: 'PublicNotice'
-    }
+      activeIndex: 'PublicNotice',
+      notice: ''
+    };
   },
   components: {
-    NavBar
+    NavBar,
+    NoticeTitleList
   },
-  created () {
+  mounted() {
+    this.axios.get('findnotice').then(resp => {
+      console.log(resp);
+      this.notice = resp.data;
+    });
+  },
+  created() {
     if (this.$route.params && this.$route.params.activeIndex) {
-      this.activeIndex = this.$route.params.activeIndex
+      this.activeIndex = this.$route.params.activeIndex;
     }
   }
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

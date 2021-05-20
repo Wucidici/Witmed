@@ -67,6 +67,19 @@
           </el-form-item>
         </el-col>
       </el-row>
+      <el-row>
+        <el-col>
+          <el-form-item label="药品描述" prop="medicineDesc">
+            <el-input
+              type="textarea"
+              :rows="2"
+              placeholder="请输入内容"
+              v-model="form.medicineDesc"
+            >
+            </el-input>
+          </el-form-item>
+        </el-col>
+      </el-row>
     </el-form>
     <div slot="footer" class="dialog-footer">
       <el-button @click="detailClose">关闭</el-button>
@@ -110,7 +123,8 @@ export default {
         medicineMoney: 0, //价格
         medicineUnit: '盒', //单位
         medicineproductdate: '', // 生产日期
-        medicineexpirationdate: '' //有效日期
+        medicineexpirationdate: '', //有效日期
+        medicineDesc: ''
       },
       formLabelWidth: '120px',
       rules: {
