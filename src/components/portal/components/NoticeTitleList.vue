@@ -6,9 +6,7 @@
     <div class="info">
       <div
         v-bind:class="[
-          NoticeData.noticeType == 2 || 1 == 1
-            ? 'article-title-blue'
-            : 'article-title'
+          NoticeData.noticeType == 2 ? 'article-title-blue' : 'article-title'
         ]"
         @click="jumpToDetail(NoticeData)"
       >

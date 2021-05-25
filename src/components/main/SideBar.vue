@@ -98,15 +98,15 @@ export default {
           title: '公告与健康知识管理',
           subs: [
             {
-              index: '/notice/publice',
+              index: '/publice',
               title: '公告发布'
             },
             {
-              index: '/notice/list',
+              index: '/list',
               title: '公告列表'
             },
             {
-              index: '/notice/healthlist',
+              index: '/healthlist',
               title: '健康知识列表'
             }
           ]

@@ -17,7 +17,7 @@ export default new Router({
       component: () => import('@/components/HomePage.vue'),
       children: [
         {
-          path: '/notice/publice',
+          path: '/publice',
           name: 'noticepublice',
           meta: {
             title: '公告发布'
@@ -25,7 +25,7 @@ export default new Router({
           component: () => import('../components/main/Notice/NoticePublice.vue')
         },
         {
-          path: '/notice/list',
+          path: '/list',
           name: 'noticelist',
           meta: {
             title: '公告列表'
@@ -33,7 +33,7 @@ export default new Router({
           component: () => import('../components/main/Notice/NoticeList.vue')
         },
         {
-          path: '/notice/healthlist',
+          path: '/healthlist',
           name: 'healthlist',
           meta: {
             title: '健康知识列表'

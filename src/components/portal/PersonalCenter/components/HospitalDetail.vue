@@ -81,7 +81,7 @@
     </el-form>
     <div slot="footer" class="dialog-footer">
       <el-button @click="detailClose">关闭</el-button>
-      <el-button type="primary" @click="save('form')">保存</el-button>
+      <el-button type="primary" @click="save('form')">提交</el-button>
     </div>
   </el-dialog>
 </template>
@@ -167,6 +167,8 @@ export default {
         .catch(error => {
           console.log(error);
         });
+      this.form.wardRoomNum = '';
+      this.form.temp = '';
     }
   },
   mounted() {

@@ -1,6 +1,6 @@
 <template>
   <div class="diagnose-self-container">
-    <NavBar></NavBar>
+    <NavBar :active-index="activeIndex"></NavBar>
     <div class="diagnose-self">
       <h1 class="main-title">疾病自我诊断</h1>
       <div class="main-block">
@@ -75,6 +75,7 @@ export default {
   data() {
     return {
       active: 0,
+      activeIndex: 'diagnoseSelf',
       suggest:
         '身体总感觉不舒服，告诉我你的症状，我们根据可靠的数据和智慧的技术为您诊断'
     };

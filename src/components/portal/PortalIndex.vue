@@ -10,7 +10,7 @@
 
           <el-table
             :data="notice"
-            style="width: 100%; height: calc(100% - 50px);overflow:auto;"
+            style="width: 98%; height: calc(100% - 50px);overflow:auto;"
           >
             <el-table-column prop="name" label="标题">
               <template slot-scope="scop">
@@ -64,7 +64,7 @@
 
           <el-table
             :data="healthknowledge"
-            style="width: 100%; height: calc(100% - 50px);overflow:auto;"
+            style="width: 98%; height: calc(100% - 50px);overflow:auto;"
           >
             <el-table-column prop="name" label="标题">
               <template slot-scope="scop">
@@ -167,6 +167,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
+::-webkit-scrollbar {
+  height: 22px !important;
+  width: 7px !important;
+}
+
+/*定义了滚动条滑块的样式*/
+::-webkit-scrollbar-thumb {
+  border-style: dashed;
+  background-color: rgb(19, 206, 102);
+  border-color: #e2242400;
+  border-width: 1.5px;
+  background-clip: padding-box;
+}
 .title-container {
   height: 50px;
   line-height: 50px;

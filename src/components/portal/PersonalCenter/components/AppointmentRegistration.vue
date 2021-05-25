@@ -72,12 +72,12 @@
           </el-form-item>
         </el-col>
 
-        <el-col v-show="form.doctorName != ''" :span="12">
+        <el-col v-show="form.temp != ''" :span="12">
           <el-form-item label="排队号" prop="ranking">
             <el-input :disabled="true" v-model="form.ranking"></el-input>
           </el-form-item>
         </el-col>
-        <el-col v-show="form.doctorName != ''" :span="12">
+        <el-col v-show="form.temp != ''" :span="12">
           <el-form-item label="医生性别" prop="doctorGender">
             <el-input :disabled="true" v-model="form.doctorGender"> </el-input>
           </el-form-item>
@@ -86,7 +86,7 @@
     </el-form>
     <div slot="footer" class="dialog-footer">
       <el-button @click="detailClose">关闭</el-button>
-      <el-button type="primary" @click="save('form')">保存</el-button>
+      <el-button type="primary" @click="save('form')">提交</el-button>
     </div>
   </el-dialog>
 </template>
@@ -178,6 +178,9 @@ export default {
         .catch(error => {
           console.log(error);
         });
+      this.form.temp = '';
+      this.form.ranking = '';
+      this.form.doctorGender = '';
     },
     'form.doctorType': function(nval, oval) {
       this.axios
@@ -194,6 +197,9 @@ export default {
         .catch(error => {
           console.log(error);
         });
+      this.form.temp = '';
+      this.form.ranking = '';
+      this.form.doctorGender = '';
     }
   },
   mounted() {

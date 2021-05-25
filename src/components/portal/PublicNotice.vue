@@ -1,7 +1,7 @@
 <template>
   <div style="height:100%">
     <NavBar :active-index="activeIndex"></NavBar>
-    <div style=" height:100%;overflow:auto !important;">
+    <div style=" height:660px;overflow:auto !important;">
       <notice-title-list
         v-for="no in notice"
         :key="no.id"
@@ -40,4 +40,18 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+::-webkit-scrollbar {
+  height: 22px !important;
+  width: 7px !important;
+}
+
+/*定义了滚动条滑块的样式*/
+::-webkit-scrollbar-thumb {
+  border-style: dashed;
+  background-color: rgb(19, 206, 102);
+  border-color: #e2242400;
+  border-width: 1.5px;
+  background-clip: padding-box;
+}
+</style>
